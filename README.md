@@ -26,8 +26,8 @@ INSTALLATION
  * Place the noty folder in your module directory and enable it.
  
  * You will need to download the Noty.js library and place it in your libraries
-   Folder. Where the path is /libaraies/noty/lib/noty.min.js
-   You can download the libarary here: https://github.com/needim/noty
+   Folder. Where the path is /libraries/noty/lib/noty.min.js
+   You can download the library here: https://github.com/needim/noty
    
  * Requires the following patch for the flag module:
    https://www.drupal.org/project/flag/issues/3062604
