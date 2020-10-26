@@ -1,6 +1,4 @@
-# drupal8_noty
-
-Drupal 8 Module
+# Noty.js flag messages in Drupal 8
 
 Adds Noty.js to Drupal 8 Ajax commands and optionally replaces flag messages
 
