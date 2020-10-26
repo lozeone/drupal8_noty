@@ -47,10 +47,11 @@ function noty_form_flag_edit_form_alter(&$form, FormStateInterface &$form_state)
 
   $form['noty'] = array(
     '#type' => 'details',
-    '#title' => t('Floating Notifications'),
+    '#title' => t('Noty.js Messages'),
     '#weight' => 1,
     '#description' => t('Choose to display the feedback text using noty.js'),
     '#tree' => TRUE,
+    '#open' => TRUE,
   );
   $options = [
     0 => t('None (Flag default behavior)'),
@@ -90,6 +91,7 @@ function noty_form_flag_edit_form_builder($entity_type, $flag, &$form, FormState
 function noty_ajax_render_alter(array &$data) {
 
   // get all the command names in an array
+  $commands = [];
   foreach ($data as $key => $command) {
     $commands[$key] = $command['command'];
   }
@@ -97,7 +99,7 @@ function noty_ajax_render_alter(array &$data) {
   $default_index = array_search('actionLinkFlash', $commands);
 
   // only remove if we have both.
-  if (in_array('addNoty', $commands) && in_array('actionLinkFlash', $commands)) {
+  if (in_array('addNotyMessage', $commands) && in_array('actionLinkFlash', $commands)) {
     unset($data[$default_index]);
   }
 

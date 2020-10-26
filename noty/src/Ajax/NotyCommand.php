@@ -5,48 +5,50 @@ namespace Drupal\noty\Ajax;
 use Drupal\Core\Ajax\CommandInterface;
 
 /**
- * Flash a message as an action link is updated.
+ * Displays a Noty message when an an action link is updated.
  *
- * The client side code can be found in js/flag-action_link_flash.js.
+ * The client side code can be found in js/noty.js.
  *
  * @ingroup flag
  */
 class NotyCommand implements CommandInterface {
 
   /**
-   * Identifies the action link to be flashed.
+   * The type option of the Noty message.
    *
    * @var string
    */
-  protected $style;
+  protected $type;
 
   /**
-   * The message to be flashed under the link.
+   * The message to be shown.
    *
    * @var string
    */
   protected $message;
 
   /**
-   * Construct a message Flasher.
+   * Construct a message Noty.
    *
    * @param string $selector
    *   Identifies the action link to be flashed.
    * @param string $message
    *   The message to be displayed.
    */
-  public function __construct($message, $style = 'alert') {
-    $this->style = $style;
+  public function __construct($message, $type = 'alert') {
+    $this->type = $type;
     $this->message = $message;
   }
 
   /**
    * {@inheritdoc}
+   *
+   * @todo - should allow passing more config options here.
    */
   public function render() {
     return [
       'command' => 'addNotyMessage',
-      'style' => $this->style,
+      'type' => $this->type,
       'message' => $this->message,
     ];
   }
