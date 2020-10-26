@@ -1,0 +1,5 @@
+services:
+  noty.flag_ajax_subscriber:
+    class: Drupal\noty\EventSubscriber\FlagAjaxResponseSubscriber
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * @file
+ * Contains noty.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function noty_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the noty module.
+    case 'help.page.noty':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Display floating Noty messages') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_flag().
+ */
+function noty_preprocess_flag(&$vars) {
+  // Add the noty library
+  $vars['#attached']['library'][] = 'noty/noty';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Adds third party config options to set Noty message style per flag.
+ */
+function noty_form_flag_edit_form_alter(&$form, FormStateInterface &$form_state) {
+  $flag = $form_state->getFormObject()->getEntity();
+  $settings = $flag->getThirdPartySetting('noty', 'settings', [
+    'unflag' => 0,
+    'flag' => 0,
+  ]);
+
+  $form['noty'] = array(
+    '#type' => 'details',
+    '#title' => t('Floating Notifications'),
+    '#weight' => 1,
+    '#description' => t('Choose to display the feedback text using noty.js'),
+    '#tree' => TRUE,
+  );
+  $options = [
+    0 => t('None (Flag default behavior)'),
+    'alert' => t('Alert'),
+    'success' => t('Success'),
+    'warning' => t('Warning'),
+    'error' => t('Error'),
+    'info' => t('Info'),
+  ];
+  $form['noty']['flag'] = [
+    '#title' => t('Flagged message style'),
+    '#type' => 'select',
+    '#options' => $options,
+    '#default_value' => $settings['flag'],
+  ];
+  $form['noty']['unflag'] = [
+    '#title' => t('Unflagged message style'),
+    '#type' => 'select',
+    '#options' => $options,
+    '#default_value' => $settings['unflag'],
+  ];
+  $form['#entity_builders'][] = 'noty_form_flag_edit_form_builder';
+}
+
+/**
+ * Entity builder for the flag_edit_form form settings.
+ */
+function noty_form_flag_edit_form_builder($entity_type, $flag, &$form, FormStateInterface $form_state) {
+  $flag->setThirdPartySetting('noty', 'settings', $form_state->getValue('noty'));
+}
+
+/**
+ * Implements hook_ajax_render_alter()
+ *
+ * Removes the default flag message if we are using Noty for this flag action.
+ */
+function noty_ajax_render_alter(array &$data) {
+
+  // get all the command names in an array
+  foreach ($data as $key => $command) {
+    $commands[$key] = $command['command'];
+  }
+  // find the index of the actionLinkFlash command and remove it.
+  $default_index = array_search('actionLinkFlash', $commands);
+
+  // only remove if we have both.
+  if (in_array('addNoty', $commands) && in_array('actionLinkFlash', $commands)) {
+    unset($data[$default_index]);
+  }
+
+}

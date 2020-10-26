@@ -1,0 +1,12 @@
+noty:
+  version: VERSION
+  css:
+    theme:
+      css/animate.css: {}
+      /libraries/noty/lib/noty.css: {}
+      /libraries/noty/lib/themes/relax.css: {}
+  js:
+    /libraries/noty/lib/noty.min.js: {}
+    js/noty.js: {}
+  dependencies:
+    - core/drupal
