@@ -7,7 +7,7 @@ This is just my first stab at this, it needs polish.
 WHAT IT DOES
 ------------
 - Replaces flags default feedback messages with noty style messages. (configurable per flag)
-- Provides a custom ajax command *NotyCommand* for adding a Noty message to
+- Provides an ajax command *NotyCommand* for adding a Noty message to
 your ajax responses.
 
 Usage:
