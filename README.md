@@ -18,13 +18,13 @@ Usage:
 
 **$message** - the message text.
 
-**$settings** - an array of options
+**$settings** - an array of options https://ned.im/noty/#/options
 
-  **'type'** => 'alert', // a string for the Noty type option (alert, success, error, warning, info)
+  'type' => 'alert', // string - The Noty type (alert, success, error, warning, info)
 
-  **'timeout'** => 3000, //int - The amount of time the message will stay on the screen
+  'timeout' => 3000, // int - The amount of time the message will stay on the screen
 
-  **'layout'** => 'topCenter', //string - The position of the mesage
+  'layout' => 'topCenter', // string - The position of the mesage
 
 
 INSTALLATION
