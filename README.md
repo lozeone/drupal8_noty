@@ -56,4 +56,4 @@ CONFIGURATION
 -------------
 
  * In the "Noty Messages" section of each flag edit form, you can set the
-   severity level of the messages for each flag action.
+   severity level, timeout, and position for each flag action.
