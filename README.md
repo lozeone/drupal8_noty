@@ -20,11 +20,11 @@ Usage:
 
 **$settings** - an array of options
 
-  **'type'** a string for the Noty type option (alert, success, error, warning, info)
+  **'type'** => 'alert', // a string for the Noty type option (alert, success, error, warning, info)
 
-  **'timeout'** int - The amount of time the message will stay on the screen
+  **'timeout'** => 3000, //int - The amount of time the message will stay on the screen
 
-  **'layout'** string - The position of the mesage
+  **'layout'** => 'topCenter', //string - The position of the mesage
 
 
 INSTALLATION
