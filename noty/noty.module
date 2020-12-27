@@ -73,6 +73,32 @@ function noty_form_flag_edit_form_alter(&$form, FormStateInterface &$form_state)
     '#options' => $options,
     '#default_value' => $settings['unflag'],
   ];
+  $form['noty']['timeout'] = [
+    '#title' => t('Message timeout'),
+    '#description' => t('How long the message stays on the screen in milliseconds'),
+    '#type' => 'textfield',
+    '#default_value' => isset($settings['timeout']) ? $settings['timeout'] : 3000,
+  ];
+  $options = [
+    'top' => t('top'),
+    'topLeft' => t('topLeft'),
+    'topCenter' => t('topCenter'),
+    'topRight' => t('topRight'),
+    'center' => t('center'),
+    'centerLeft' => t('centerLeft'),
+    'centerRight' => t('centerRight'),
+    'bottom' => t('bottom'),
+    'bottomLeft' => t('bottomLeft'),
+    'bottomCenter' => t('bottomCenter'),
+    'bottomRight' => t('bottomRight'),
+  ];
+  $form['noty']['layout'] = [
+    '#title' => t('Message position'),
+    '#type' => 'select',
+    '#options' => $options,
+    '#default_value' =>  isset($settings['layout']) ? $settings['layout'] : 'topCenter',
+  ];
+
   $form['#entity_builders'][] = 'noty_form_flag_edit_form_builder';
 }
 

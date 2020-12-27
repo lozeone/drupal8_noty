@@ -13,23 +13,29 @@ your ajax responses.
 Usage:
 
     <?php
-      $response->addResponse(new NotyCommand($message, $type));
+      $response->addCommand(new NotyCommand($message, $settings));
     ?>
-  
+
 **$message** - the message text.
 
-**$type** - a string for the Noty type option (alert, success, error, warning, info)
+**$settings** - an array of options
+
+  **'type'** a string for the Noty type option (alert, success, error, warning, info)
+
+  **'timeout'** int - The amount of time the message will stay on the screen
+
+  **'layout'** string - The position of the mesage
 
 
 INSTALLATION
 ------------
 
  * Place the noty folder in your module directory and enable it.
- 
+
  * You will need to download the Noty.js library and place it in your libraries
    Folder. Where the path is /libraries/noty/lib/noty.min.js
    You can download the library here: https://github.com/needim/noty
-   
+
  * Requires the following patch for the flag module:
    https://www.drupal.org/project/flag/issues/3062604
 

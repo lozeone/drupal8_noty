@@ -7,14 +7,14 @@
       new Noty({
         text: response.message,
         theme: 'relax',
-        layout: 'topCenter',
+        layout: response.layout,
         type: response.type,
         buttons: false,
         killer: true,
-        timeout: 3000,
+        timeout: response.timeout,
         animation: {
           open: 'animated fadeInDown fast', // Animate.css class names
-          close: 'animated fadeOutUp fast' //, // Animate.css class names
+          close: 'animated fadeOutUp fast'  // Animate.css class names
         }
       }).show();
     } else {

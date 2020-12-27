@@ -40,8 +40,8 @@ class FlagAjaxResponseSubscriber implements EventSubscriberInterface {
 
       $flag_action = $response->getFlagAction();
       if (!empty($settings[$flag_action])) {
-        $type = $settings[$flag_action];
-        $response->addCommand(new NotyCommand($flag->getMessage($flag_action), $type));
+        $settings['type'] = $settings[$flag_action];
+        $response->addCommand(new NotyCommand($flag->getMessage($flag_action), $settings));
       }
     }
   }
