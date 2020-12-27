@@ -23,9 +23,9 @@ Usage:
 ```
 \\ The currently supported options are ...
 [
-  'type' => 'alert', // string - The Noty type (alert, success, error, warning, info)
-  'timeout' => 3000, // int - The amount of time in millieseconds the message will stay on the screen
-  'layout' => 'topCenter', // string - The position of the mesage
+  'type'    => 'alert',     // string - The Noty type (alert, success, error, warning, info)
+  'timeout' => 3000,        // int - The amount of time in millieseconds the message will stay on the screen
+  'layout'  => 'topCenter', // string - The position of the mesage
 ]
 ```
 
