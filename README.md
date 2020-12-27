@@ -13,6 +13,8 @@ your ajax responses.
 Usage:
 
     <?php
+      use Drupal\noty\Ajax\NotyCommand;
+      
       $response->addCommand(new NotyCommand($message, $settings));
     ?>
 
@@ -41,6 +43,7 @@ INSTALLATION
 
  * Requires the following patch for the flag module:
    https://www.drupal.org/project/flag/issues/3062604
+   Otherwise you can just call it in your own code with <code>$response->addCommand(new NotyCommand($message, $settings));</code>
 
 
 REQUIREMENTS
