@@ -1,14 +1,13 @@
-# Noty.js flag messages in Drupal 8
+# Noty.js flag messages in Drupal 8/9
 
-Adds Noty.js to Drupal 8 Ajax commands and optionally replaces flag messages
+Adds Noty.js to Drupal 8/9 Ajax commands and optionally replaces flag messages
 
 This is just my first stab at this, it needs polish.
 
 WHAT IT DOES
 ------------
-- Replaces flags default feedback messages with noty style messages. (configurable per flag)
-- Provides an ajax command *NotyCommand* for adding a Noty message to
-your ajax responses.
+- Optionally Replaces flags default feedback messages with noty style messages. (configurable per flag)
+- Provides an ajax command *NotyCommand* for adding a Noty message to your own ajax responses.
 
 Usage:
 
