@@ -3,3 +3,5 @@ type: module
 description: 'Display floating Noty messages and optionaly replace the default flag messages'
 core_version_requirement: ^8 || ^9
 package: 'ILG'
+dependencies:
+  - flag:flag
