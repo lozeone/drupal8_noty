@@ -1,5 +1,5 @@
 name: 'Noty'
 type: module
 description: 'Display floating Noty messages and optionaly replace the default flag messages'
-core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'ILG'

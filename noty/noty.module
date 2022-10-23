@@ -3,6 +3,10 @@
 /**
  * @file
  * Contains noty.module.
+ *
+ * @todo
+ * Dont include animate css here. make it a library?
+ *
  */
 
 use Drupal\Core\Form\FormStateInterface;
@@ -29,6 +33,11 @@ function noty_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_preprocess_flag().
  */
 function noty_preprocess_flag(&$vars) {
+  // Add the noty library
+  $vars['#attached']['library'][] = 'noty/noty';
+}
+
+function noty_preprocess_page(&$vars) {
   // Add the noty library
   $vars['#attached']['library'][] = 'noty/noty';
 }
